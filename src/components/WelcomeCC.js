@@ -3,13 +3,19 @@ import React from 'react';
 class Welcome extends React.Component {
   constructor(props) {
     console.log('constructor phase');
-
     super(props);
     this.state = {
       firstName: 'Ahmed',
       lastName: 'Hossam',
     };
   }
+
+  changeName = () => {
+    this.setState({
+      firstName: 'dada',
+    });
+  };
+
   render() {
     console.log('render phase');
     return (
@@ -20,24 +26,15 @@ class Welcome extends React.Component {
         <h6>
           Created by, {this.state.firstName} {this.state.lastName}
         </h6>
-        <button
-          onClick={() => {
-            this.setState({
-              firstName: 'dada',
-            });
-          }}
-        >
-          Change my name
-        </button>
+        <button onClick={this.changeName}>Change my name</button>
       </>
     );
   }
 
   componentDidMount() {
     this.setState({
-      lastName: 'Aldod',
+      lastName: 'aldod',
     });
-    console.log('componentDidMount phase');
   }
 }
 
